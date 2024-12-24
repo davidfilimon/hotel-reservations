@@ -16,27 +16,26 @@ namespace proiect_tap
 {
     public partial class Form3 : Form
     {
-        string db = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:Users\David\Documents\tap.accdb;";
+        private string db = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:Users\David\Documents\tap.accdb;";
         private static DataGridViewRow randCurent;
         public Form3(DataGridViewRow randSelectat)
         {
-            this.Text = "Inregistrare rezervare";
             randCurent = randSelectat;
             InitializeComponent();
+            this.Text = "Inregistrare rezervare";
+
         }
 
         // procesul de salvare ale informatiilor ale clientului
         private void salveazaInformatii()
         {
-            
                 int idClient = detaliiClient();
                 if (idClient != -1) // validator
                 { 
                     var (idCamera, nrCamera, nrLocuri, etaj, pretZi) = alegeCamera();
                     dataCazarii(idClient, nrCamera, pretZi);
                     MessageBox.Show("Datele au fost salvate cu succes!", "Succes", MessageBoxButtons.OK);
-                }
-            
+                }           
         }
 
         // buton confirmare

@@ -250,26 +250,34 @@ namespace proiect_tap
                     string query = "SELECT Nume, NrTelefon FROM Clienti C INNER JOIN RezervariContinut RC ON C.IdClient = RC.Nrc WHERE RC.IdCamera = @IdCamera";
 
                     DataGridViewRow row = dataGridView1.CurrentRow;
-                    int cameraSelectata = (int)row.Cells["IdCamera"].Value;
 
-                    using (OleDbCommand cmd = new OleDbCommand(query, con))
+                    if(row != null)
                     {
-                        cmd.Parameters.AddWithValue("@IdCamera", cameraSelectata);
-
-                        using (OleDbDataReader reader = cmd.ExecuteReader())
+                        int cameraSelectata = (int)row.Cells["IdCamera"].Value;
+                        using (OleDbCommand cmd = new OleDbCommand(query, con))
                         {
-                            if (reader.Read())
+                            cmd.Parameters.AddWithValue("@IdCamera", (int) cameraSelectata);
+
+                            using (OleDbDataReader reader = cmd.ExecuteReader())
                             {
-                                string nume = reader["Nume"].ToString();
-                                string NrTelefon = reader["NrTelefon"].ToString();
+                                if (reader.Read())
+                                {
+                                    string nume = reader["Nume"].ToString();
+                                    string NrTelefon = reader["NrTelefon"].ToString();
 
-                                string mesaj = $"Nume client: {nume}\n" +
-                                               $"Numar de telefon: {NrTelefon}";
+                                    string mesaj = $"Nume client: {nume}\n" +
+                                                   $"Numar de telefon: {NrTelefon}";
 
-                                MessageBox.Show(mesaj, "Detalii client", MessageBoxButtons.OK);
+                                    MessageBox.Show(mesaj, "Detalii client", MessageBoxButtons.OK);
+                                }
                             }
                         }
+                    } 
+                    else
+                    {
+                        MessageBox.Show("Nu exista camere ocupate.", "Invalid", MessageBoxButtons.OK);
                     }
+                    
                 }
                 catch (Exception ex)
                 {
