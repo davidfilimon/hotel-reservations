@@ -38,6 +38,8 @@
 * Each booking content references a valid booking
 * Each completed booking corresponds to a previous booking
 
+![](images/image001.png)
+
 ---
 
 ## III. Interfaces and Forms
@@ -52,13 +54,19 @@ Form for administrator authentication, displaying app title and author.
 
 Displays available rooms, buttons to view occupied rooms, initiate booking, search by floor/occupancy, and refresh view.
 
+![](images/image004.png)
+
 ### 3. Booking Registration Form
 
 Used to register a client and booking, specifying check-in date and number of days.
 
+![](images/image006.png)
+
 ### 4. Room Management Form
 
 View and manage booked rooms, search by room number, check-out clients, and view client details.
+
+![](images/image008.png)
 
 ---
 
@@ -82,10 +90,17 @@ View and manage booked rooms, search by room number, check-out clients, and view
   * Wrong login credentials
   * Incomplete form fields
   * Attempting to view details for non-booked rooms
+ 
+![](images/image011.png)
+![](images/image024.png)
+![](images/image018.png)
+![](images/image028.png)
 
 ### 3. Checkout Summary:
 
 At checkout, a summary is shown with total payment and duration.
+
+![](images/image030.png)
 
 ---
 
