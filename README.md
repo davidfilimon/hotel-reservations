@@ -46,6 +46,8 @@
 
 Form for administrator authentication, displaying app title and author.
 
+![](images/image003.png)
+
 ### 2. Main Page Form
 
 Displays available rooms, buttons to view occupied rooms, initiate booking, search by floor/occupancy, and refresh view.
